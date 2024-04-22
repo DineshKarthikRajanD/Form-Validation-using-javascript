@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <p>Registration Form</p>
+        </div>
+        <form action="#" onsubmit="formvalidate()" name="myform">
+        <div class="user_details">
+            <div class="hi">
+            <div class="input_box">
+                <label for="name">Full Name</label><br>
+                <input type="text" id="name" placeholder="Enter ur Name"  name="first">
+            </div>
+            <div class="input_box">
+                <label for="name">User Name</label><br>
+                <input type="text" id="uname" placeholder="Enter ur User Name" >
+            </div>
+            <div class="input_box">
+                <label for="name">Email</label><br>
+                <input type="text" id="email" placeholder="Enter ur Email" >
+            </div>
+            </div>
+            <div class="hello">
+            <div class="input_box">
+                <label for="name">Phone Number</label><br>
+                <input type="text" id="phone" placeholder="Enter ur Number" >
+            </div>
+            <div class="input_box">
+                <label for="name">Password</label><br>
+                <input type="password" id="pass" placeholder="Enter ur Password" >
+            </div>
+            <div class="input_box">
+                <label for="name">Confirm Password</label><br>
+                <input type="password" id="cpass" placeholder="Confirm Password" >
+            </div>
+            </div>
+        </div>
+        <div class="side">
+        <div class="cours">
+        <label for="course">Course</label><br>
+        <select class="hi" id="dep" name="dep">
+            <option value="">-- Please select --</option>
+            <option value="option1">Computer Science and Engineering</option>
+            <option value="option2">Information Technology</option>
+            <option value="option3">Mechanical</option>
+            <option value="option4">Civil</option>
+        </select>
+        </div>
+        <div class="dob">
+            <label for="dob1">Date of Birth</label><br>
+            <input type="date" name="dob" id="dob" placeholder="choose your date of birth">
+        </div>
+        </div>
+        <div class="hey">
+        <div class="rad">
+            <div class="gen">
+             <label for="gen">Gender</label><br>
+             </div>
+             <div class="male">
+            <input type="radio" id="html" name="gend" value="HTML">
+            <label for="html">Male</label><br>
+</div>
+            <input type="radio" id="css" name="gend" value="CSS">
+            <label for="css">Female</label><br>
+            <input type="radio" id="javascript" name="gend" value="JavaScript">
+            <label for="javascript">Other</label>
+        </div>
+        <div class="check">
+            <label for="lang">Language Known</label><br>
+            <div class="ch">
+            <input type="checkbox" id="vehicle1" name="lang" value="Bike">
+  <label for="vehicle1">Tamil</label><br>
+  <input type="checkbox" id="vehicle2" name="lang" value="Car">
+  <label for="vehicle2">English</label><br>
+  <input type="checkbox" id="vehicle3" name="lang" value="Boat">
+  <label for="vehicle3">Hindi</label>
+  </div>
+        </div>
+        </div>
+        <div class="button_1">
+            <div class="btn-1">
+                <button>Submit</button>
+            </div>
+            <div class="btn-2">
+                <input type="reset" value="Reset">
+            </div>
+        </div>
+        </form>
+        <script>
+          function formvalidate()  
+          {
+         var fname = document.getElementById("name").value;
+    if (fname === "" || /\d/.test(fname)) {
+        window.alert("Please enter a valid name");
+        return false;
+    }
+
+    var lname = document.getElementById("uname").value;
+    if (lname === "" || /\d/.test(lname)) {
+        window.alert("Please enter a valid User name");
+        return false;
+    }
+    var email = document.getElementById("email").value;
+    if (email === "" || !isValidEmail(email)) {
+        window.alert("Please enter a valid email");
+        return false;
+    }
+
+    var ph = document.getElementById("phone").value;
+    if (ph.length !== 10 || isNaN(ph)) {
+        window.alert("Enter a valid 10-digit phone number");
+        return false;
+    }
+
+    var pass = document.getElementById("pass").value;
+    var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!pattern.test(pass)) {
+        window.alert("Enter a 8-digit strong password\n The password should contain at least one digit, one special character");
+        return false;
+    }
+
+    var repass = document.getElementById("cpass").value;
+    if (pass != repass) {
+        window.alert("Passwords do not match");
+        return false;
+    }
+    var year = document.querySelector('input[name="gend"]:checked');
+    if (year == null) {
+            window.alert("Please select your Gender.");
+            return false;
+        }
+    var language=document.querySelectorAll('input[name="lang"]:checked');
+    if(language.length === 0){
+        window.alert("Please select at least one language.");
+        return false;
+    }
+    var department=document.getElementById("dep").value
+    if (department == 0) {
+            alert("Please select your department.");
+            return false;
+        }
+    var date=document.getElementById("dob").value
+    if (date == 0) {
+            alert("Please select your Date of Birth.");
+            return false;
+        }
+    window.open("hello.html","_blank");
+    return true;
+}
+
+function isValidEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+        </script>
+</body>
+</html>
